@@ -1,0 +1,131 @@
+@font-face {
+font-family: 'RobotoThin';
+src:  url('fonts/Roboto-Thin.woff2') format('woff2');
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.MagicScroll[data-mode="carousel"],
+.MagicScroll[data-mode="cover-flow"] {
+    transition: background-color 2.5s;
+    background-color: #00272e;
+}
+.MagicScroll[data-mode="carousel"]:has(.mcs-item[style*="z-index: 100"] a:hover),
+.MagicScroll[data-mode="cover-flow"]:has(.mcs-item[style*="z-index: 100"] a:hover) {
+    background-color: cornflowerblue;
+}
+.MagicScroll[data-mode="carousel"], 
+.MagicScroll[data-mode="cover-flow"] {
+    /* background-image: linear-gradient(180deg, grey, green); */
+}
+
+.MagicScroll-vertical {
+    height: 100% !important;
+} 
+
+
+.MagicScroll figcaption, 
+.MagicScroll[data-mode="carousel"] .mcs-item .mcs-caption, 
+.MagicScroll[data-mode="cover-flow"] .mcs-item .mcs-caption {
+    position: fixed;
+    top: 50% !important; 
+    /* right: 0; */
+
+    font-family: 'RobotoThin';
+    transform: none !important;
+
+    display: none;
+}
+.MagicScroll[data-mode="carousel"] .mcs-item a:hover .mcs-caption , 
+.MagicScroll[data-mode="cover-flow"] .mcs-item a:hover .mcs-caption {
+
+    display: inline-block;
+}
+.MagicScroll[data-mode="carousel"] .mcs-item a:hover .mcs-caption > span, 
+.MagicScroll[data-mode="cover-flow"] .mcs-item a:hover .mcs-caption > span{
+    animation: zoomIn .25s linear forwards;
+
+    display: inline-block;
+}
+
+@keyframes zoomIn {
+    to { 
+        scale: 1.5;
+        opacity: 1;
+    }
+}
+
+.MagicScroll[data-mode="carousel"] .mcs-item,
+.MagicScroll[data-mode="cover-flow"] .mcs-item {
+    transition: filter .25s;
+}
+.MagicScroll[data-mode="carousel"] .mcs-item img,
+.MagicScroll[data-mode="cover-flow"] .mcs-item img {
+    transition: opacity .25s, scale 1s;
+}
+.MagicScroll[data-mode="carousel"] .mcs-item[style*="z-index: 100"] img,
+.MagicScroll[data-mode="cover-flow"] .mcs-item[style*="z-index: 100"]  img {
+    scale: 1.5;
+}
+
+/* Hyperlinks that are not hovered (while one is) */
+.MagicScroll[data-mode="carousel"]:has(.mcs-item a:hover) .mcs-item:not(:has(a:hover)),
+.MagicScroll[data-mode="cover-flow"]:has(.mcs-item a:hover) .mcs-item:not(:has(a:hover)) {
+    filter: grayscale(1);
+    /* backdrop-filter: blur(2px); */
+    /* mix-blend-mode: color-burn; */
+}
+
+/* All the images in those not hovered hyperlinks */
+.MagicScroll[data-mode="carousel"]:has(.mcs-item a:hover) .mcs-item:not(:has(a:hover)) img,
+.MagicScroll[data-mode="cover-flow"]:has(.mcs-item a:hover) .mcs-item:not(:has(a:hover)) img {
+    opacity: 0.25;
+}
+
+a[href="http://www.magictoolbox.com/magicscroll/"] { display: none }   
+
+.MagicScroll a > span {
+    width: 100vw;
+    translate: -50% -50%;
+    
+    display: inline-block;
+}
+.MagicScroll a > span > span {
+    --side-margin: 8rem;
+
+    position: absolute;
+    max-width: min(400px, 25vw);
+
+    white-space: normal;
+    padding: 1rem;
+    border: 1px inset rgb(42, 55, 230);
+
+    opacity: 0;
+    scale: .1;
+}
+
+.MagicScroll a > span > span:nth-of-type(1) {
+    right: var(--side-margin);
+    translate: 0 -90%;
+}
+.MagicScroll a > span > span:nth-of-type(2) {
+    position: absolute;
+    left: var(--side-margin);
+    translate: 0 -100%;
+}
+.MagicScroll a > span > span:nth-of-type(3) {
+    position: absolute;
+    right: var(--side-margin);
+    translate: 0 100%;
+}
+.MagicScroll a > span > span:nth-of-type(4) {
+    position: absolute;
+    left: var(--side-margin);
+    translate: 0 50%;
+}
