@@ -21,7 +21,7 @@ body {
 }
 .MagicScroll[data-mode="carousel"]:has(.mcs-item[style*="z-index: 100"] a:hover),
 .MagicScroll[data-mode="cover-flow"]:has(.mcs-item[style*="z-index: 100"] a:hover) {
-    background-color: cornflowerblue;
+    background-color: rgba(100, 148, 237, 0.775);
 }
 .MagicScroll[data-mode="carousel"], 
 .MagicScroll[data-mode="cover-flow"] {
@@ -133,13 +133,23 @@ a[href="http://www.magictoolbox.com/magicscroll/"] { display: none }
 .description {
     position: absolute;
     top: 1rem; left: 1rem;
-    width: 40vw;
+    width: 20vw;
     color: rgb(255, 255, 255);
-
     display: inline-block;
     z-index: 2;
+    font-size: smaller;
 }
-.description h2 {
+.footnote {
+    position: absolute;
+    top: 47rem; left: 81rem;
+    width: 10vw;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    z-index: 3;
+    font-size: smaller;
+   
 }
 .description p {
+    width: 20vw;
+    background: repeat;
 }
